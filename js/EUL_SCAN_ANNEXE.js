@@ -8,4 +8,14 @@
 
 $(function() {
 
+/*!
+ *   First we need to set display to none for 
+ */
+
+if ($("#openRSRequest1")) {
+    alert("Jest!");
+	$("#openRSRequest1").css('background-color', 'pink');
+}
+ 
+ 
 });
