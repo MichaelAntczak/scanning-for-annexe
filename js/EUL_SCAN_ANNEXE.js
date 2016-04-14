@@ -28,4 +28,16 @@ jQuery.PRIMO.records.each(
         }
       ); 
  
+ /*!
+ *   Comments
+ *		 
+ * 		$("form[name='requestTabForm']") 
+ * 		$("form[name='requestTabForm']").find('iframe')
+ * 			is initially an empty Array, 
+ * 			Every time user clicks on "Find it in the Library" it fires an event
+ * 			and it populates the Array with form objects
+ * 
+ * 		$("#openRSRequest1") is to access the request link
+ */
+ 
 });
