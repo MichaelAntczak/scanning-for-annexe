@@ -10,8 +10,26 @@ $(function() {
 
 /*!
  *   First we need to set display to none for 
+ *  attach onclick event to "li.EXLRequestTab" 
+ * 	if item NOT in the Annexe -> return
+ * 	else {	create a SCAN link poiting to the Illiad site		}
  */
 
+ 
+ // attach the click event to ALL "li.EXLRequestTab"
+ $('li.EXLRequestTab').click(function(){
+    console.log("!!!!!!!!!!!!!! Doesn't work either");
+});
+ 
+ // once clicked - check if the item is in the Annexe
+ // maybe would have to test if the click is on closed or opened tab ??
+ 
+ // if NOT -> return
+ 
+ // else create the link to the Illiad logon page
+ 
+ 
+ /*
 if ($("#openRSRequest1")) {
     alert("Jest!");
 	$("#openRSRequest1").css('background-color', 'pink');
@@ -39,5 +57,7 @@ jQuery.PRIMO.records.each(
  * 
  * 		$("#openRSRequest1") is to access the request link
  */
+ 
+ 
  
 });
