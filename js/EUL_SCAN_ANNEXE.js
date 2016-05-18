@@ -13,27 +13,21 @@ $(function() {
 	
 	// iterate over the result rows and find those from the Annexe
 	result_rows.each(function(index) {
-		
-		console.log('*** NUMBER *** ' + index);
-		
+
 		// holds one result DOM subtree
 		var $this = $(this);
-		console.log($this);
 		
 		// holds the location library from the availability line
 		var $library = $this.find('.EXLAvailabilityLibraryName');
 		library = $.trim($library.text());
-		console.log('The library number ' + index + ' is ' + library);
 		
-		// var for attaching click event 
+		// var for attaching one time click event 
 		var FindIt = $this.find('.EXLRequestTab ');
-		console.log( FindIt );
 		
 		// var for link location
 		var $linkLocation = $this.find('.EXLTabHeaderContent');
-		console.log( $linkLocation );
 		
-		// logic for the holding location 
+		// logic for the holding location, if ANNEXE then carry on
 		if (library == "Library Annexe") {
 			
 			// attach a click event
@@ -41,13 +35,9 @@ $(function() {
 				
 				setTimeout( function() {
 				
-					$this.find('.EXLTabHeaderContent').append('<em class="EUL_SCAN_LANN"><a href="https://ed-ac.illiad.oclc.org/illiad/logon.html" target="blank">MY Request SCAN from Annexe</a></em>');
-					$library.css({ "background-color": "grey", "border-left": "5px solid red" });
+					$this.find('.EXLTabHeaderContent').append('<em class="EUL_SCAN_LANN"><a href="https://ed-ac.illiad.oclc.org/illiad/logon.html" target="blank">REQUEST SCAN</a></em>');
 					
 				}, 1300);
-				
-				console.log( $.trim( $( FindIt ).text() ) );
-				console.log('Just did it.');
 			  
 			});  // end of click function
 		} // end of if
