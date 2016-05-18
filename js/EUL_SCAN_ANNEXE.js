@@ -5,59 +5,51 @@
  *
  * Date: 2016-04-13
  */
-
+ 
 $(function() {
-
-/*!
- *   First we need to set display to none for 
- *  attach onclick event to "li.EXLRequestTab" 
- * 	if item NOT in the Annexe -> return
- * 	else {	create a SCAN link poiting to the Illiad site		}
- */
-
- 
- // attach the click event to ALL "li.EXLRequestTab"
- $('li.EXLRequestTab').click(function(){
-    console.log("!!!!!!!!!!!!!! Doesn't work either");
-});
- 
- // once clicked - check if the item is in the Annexe
- // maybe would have to test if the click is on closed or opened tab ??
- 
- // if NOT -> return
- 
- // else create the link to the Illiad logon page
- 
- 
- /*
-if ($("#openRSRequest1")) {
-    alert("Jest!");
-	$("#openRSRequest1").css('background-color', 'pink');
-}
- 
-jQuery.PRIMO.records.each(
-        function(index){ 
-		// the following gives the location of the item - which library, it doesnt 
-		// exist for electronic
-		// the trouble is to get to the iframe
-            if (jQuery.PRIMO.records[index].getData().display.availlibrary) {
-                $("#openRSRequest1").css('background-color', 'pink');
-            } 
-        }
-      ); 
- 
- /*!
- *   Comments
- *		 
- * 		$("form[name='requestTabForm']") 
- * 		$("form[name='requestTabForm']").find('iframe')
- * 			is initially an empty Array, 
- * 			Every time user clicks on "Find it in the Library" it fires an event
- * 			and it populates the Array with form objects
- * 
- * 		$("#openRSRequest1") is to access the request link
- */
- 
- 
- 
-});
+	
+	// find all rows with class=EXLResultMediaTYPEbook OR class=EXLResultMediaTYPEjournal
+	var result_rows = $('.EXLResultMediaTYPEbook,.EXLResultMediaTYPEjournal');
+	
+	// iterate over the result rows and find those from the Annexe
+	result_rows.each(function(index) {
+		
+		console.log('*** NUMBER *** ' + index);
+		
+		// holds one result DOM subtree
+		var $this = $(this);
+		console.log($this);
+		
+		// holds the location library from the availability line
+		var $library = $this.find('.EXLAvailabilityLibraryName');
+		library = $.trim($library.text());
+		console.log('The library number ' + index + ' is ' + library);
+		
+		// var for attaching click event 
+		var FindIt = $this.find('.EXLRequestTab ');
+		console.log( FindIt );
+		
+		// var for link location
+		var $linkLocation = $this.find('.EXLTabHeaderContent');
+		console.log( $linkLocation );
+		
+		// logic for the holding location 
+		if (library == "Library Annexe") {
+			
+			// attach a click event
+			$( FindIt ).one( "click", function() {
+				
+				setTimeout( function() {
+				
+					$this.find('.EXLTabHeaderContent').append('<em class="EUL_SCAN_LANN"><a href="https://ed-ac.illiad.oclc.org/illiad/logon.html" target="blank">MY Request SCAN from Annexe</a></em>');
+					$library.css({ "background-color": "grey", "border-left": "5px solid red" });
+					
+				}, 1300);
+				
+				console.log( $.trim( $( FindIt ).text() ) );
+				console.log('Just did it.');
+			  
+			});  // end of click function
+		} // end of if
+	}); // end of each iteration
+}); // end of function
