@@ -4,6 +4,8 @@ Additional functionality for Primo/DiscoverEd for the University of Edinburgh. D
 
 ed-primo-sb.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?vid=SCAN_ANNEXE
 
+You can also check the PNGF in the main folder "service view.png"
+
 <h2>What does it do?</h2> 
 
 So far if you want to place a request link it is all or nothing. We wanted to place a link for scanning requests only for our storage library and not for items from other sites. The solution we present here is a short JavaScript file that tests the availability library and attaches a link based on this. 
