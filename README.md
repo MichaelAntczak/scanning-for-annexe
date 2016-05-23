@@ -4,7 +4,7 @@ Additional functionality for Primo/DiscoverEd for the University of Edinburgh. D
 
 ed-primo-sb.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?vid=SCAN_ANNEXE
 
-You can also check the PNGF in the main folder "service view.png"
+You can also check the PNG in the main folder "service view.png"
 
 <h2>What does it do?</h2> 
 
