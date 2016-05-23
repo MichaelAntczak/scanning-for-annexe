@@ -3,7 +3,11 @@
  * Michael.Antczak@ed.ac.uk
  * The University of Edinburgh
  *
- * Date: 2016-04-13
+ * Date: 2016-05-23
+ *
+ * This function creates a REQUEST SCAN link for the items
+ * located at the Library Annexe
+ * 
  */
  
 $(function() {
@@ -14,18 +18,12 @@ $(function() {
 	// iterate over the result rows and find those from the Annexe
 	result_rows.each(function(index) {
 
-		// holds one result DOM subtree
 		var $this = $(this);
-		
-		// holds the location library from the availability line
 		var $library = $this.find('.EXLAvailabilityLibraryName');
-		library = $.trim($library.text());
+		var library = $.trim($library.text());
 		
-		// var for attaching one time click event 
+		// this is where we are attaching one time click event 
 		var FindIt = $this.find('.EXLRequestTab ');
-		
-		// var for link location
-		var $linkLocation = $this.find('.EXLTabHeaderContent');
 		
 		// logic for the holding location, if ANNEXE then carry on
 		if (library == "Library Annexe") {
